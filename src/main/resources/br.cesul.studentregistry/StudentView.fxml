@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="br.cesul.studentregistry.view.StudentListView">
+
+    <top>
+        <VBox spacing="8" BorderPane.alignment="CENTER">
+            <children>
+                <HBox spacing="8">
+                    <children>
+                        <Label text="Nome:"/>
+                        <TextField fx:id="txtName" promptText="Nome completo" HBox.hgrow="ALWAYS"/>
+                        <Label text="Email:"/>
+                        <TextField fx:id="txtEmail" promptText="exemplo@dominio.com" HBox.hgrow="ALWAYS"/>
+                        <Label text="Nota:"/>
+                        <Spinner fx:id="spnGrade" prefWidth="120"/>
+                    </children>
+                </HBox>
+
+                <HBox spacing="8">
+                    <children>
+                        <Button fx:id="btnAdd" text="Adicionar" onAction="#onAdd"/>
+                        <Button fx:id="btnToggle" text="Alternar Ativo" onAction="#onToggle"/>
+                        <Button fx:id="btnUpdate" text="Atualizar Nota" onAction="#onUpdate"/>
+                    </children>
+                </HBox>
+            </children>
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="table">
+            <columns>
+                <TableColumn fx:id="colName" text="Nome" prefWidth="220"/>
+                <TableColumn fx:id="colEmail" text="Email" prefWidth="260"/>
+                <TableColumn fx:id="colGrade" text="Nota" prefWidth="100"/>
+                <TableColumn fx:id="colActive" text="Ativo" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="8" BorderPane.alignment="CENTER_LEFT">
+            <children>
+                <ProgressIndicator fx:id="progress" visible="false"/>
+                <Label textFill="red" fx:id="lblError"/>
+            </children>
+            <padding><Insets top="8" right="10" bottom="10" left="10"/></padding>
+        </HBox>
+    </bottom>
+</BorderPane>
